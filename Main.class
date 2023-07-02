@@ -1,104 +1,33 @@
+importar  java . . _ Scanner ;
 
+public  class  Principal {
+    public  static  void  principal ( String [] args ){
 
-import java.util.Scanner;
+        //Criando Elevadores
+        Elevador  átrio = new  Elevador ( 24 , "10" , 0 );
+        Elevador  biblioteca = new  Elevador ( 18 , "20" , 0 );
+        Elevador  saguao = new  Elevador ( 10 , "30" , 0 );
 
-public class Elevador {
-    private int capacidadeMax;
-    private int andarAtual;
-    private int andarEscolhido;
-    private int pessoasPresentes;
+        Sistema . fora . println ( "Em qual elevador você está? Escolha 1.Átrio 2.Biblioteca 3.Entrada" );
+        Scanner  entrada = new  Scanner ( System . in );
+        int  opção = entrada . proximoInt ();
+        entrada . proximaLinha ();
 
-    public Elevador(int capacidade, String velocidade, int andarAtual) {
-        this.capacidadeMax = capacidade;
-        this.andarAtual = andarAtual;
-    }
+        if   ( opção == 1 ) {
+            Sistema . fora . println ( "Elevador Átrio" );
+            átrio . verificarCapacidade ();
 
-    public void andarEscolhido() {
-        System.out.println("Para qual andar você deseja ir?");
-        Scanner entrada = new Scanner(System.in);
-        this.andarEscolhido = entrada.nextInt();
-        if (this.andarEscolhido > this.andarAtual) {
-            this.subir();
-        } else {
-            this.descer();
+        } else  if ( opção == 2 ) {
+            Sistema . fora . println ( "Biblioteca Elevador" );
+            biblioteca . verificarCapacidade ();
+
+        } else  if ( opção == 3 ) {
+            Sistema . fora . println ( "Elevador Entrada" );
+            saguao . verificarCapacidade ();
+
+        } senão {
+            Sistema . fora . println ( "Opção inválida. Por favor, escolha um número correspondente a um elevador." );
+            retorno ;
         }
-
-    }
-
-    public void subir() {
-        System.out.println("Subindo...");
-
-        for(int i = this.andarAtual + 1; i <= this.andarEscolhido; ++i) {
-            System.out.println("Andar: " + i);
-        }
-
-        this.andarAtual = this.andarEscolhido;
-        System.out.println("Seu andar chegou. Pode sair!");
-    }
-
-    public void descer() {
-        System.out.println("Descendo...");
-
-        for(int i = this.andarAtual - 1; i >= this.andarEscolhido; --i) {
-            System.out.println("Andar: " + i);
-        }
-
-        this.andarAtual = this.andarEscolhido;
-        System.out.println("Seu andar chegou. Pode sair!");
-    }
-
-    public void imprimirDados() {
-        System.out.println("Andar atual: " + this.andarAtual);
-        System.out.println("Capacidade: " + this.capacidadeMax + " pessoas");
-    }
-
-    public void verificarCapacidade() {
-        System.out.println("Quantas pessoas estão dentro do elevador?");
-        Scanner entrada = new Scanner(System.in);
-        this.pessoasPresentes = entrada.nextInt();
-        if (this.capacidadeMax > this.pessoasPresentes) {
-            System.out.println("Capacidade permitida ainda não atingida. Pode entrar!");
-            this.imprimirDados();
-            this.andarEscolhido();
-        } else {
-            System.out.println("Atingiu a capacidade permitida. Espere outro elevador!");
-        }
-
-    }
-}
-
-
-
-
-import java.util.Scanner;
-
-public class Main {
-    public Main() {
-    }
-
-    public static void main(String[] args) {
-        Elevador atrio = new Elevador(24, "10", 0);
-        Elevador biblioteca = new Elevador(18, "20", 0);
-        Elevador saguao = new Elevador(10, "30", 0);
-        System.out.println("Em qual elevador você está? Escolha 1.Atrio 2.Biblioteca 3.Entrada");
-        Scanner entrada = new Scanner(System.in);
-        int opcao = entrada.nextInt();
-        entrada.nextLine();
-        if (opcao == 1) {
-            System.out.println("--ELEVADOR ATRIO--");
-            atrio.verificarCapacidade();
-        } else if (opcao == 2) {
-            System.out.println("--ELEVADOR BIBLIOTECA--");
-            biblioteca.verificarCapacidade();
-        } else {
-            if (opcao != 3) {
-                System.out.println("Opção inválida. Por favor, escolha um número correspondente a um elevador.");
-                return;
-            }
-
-            System.out.println("--ELEVADOR ENTRADA--");
-            saguao.verificarCapacidade();
-        }
-
     }
 }
