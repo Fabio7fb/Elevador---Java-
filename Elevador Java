@@ -1,0 +1,63 @@
+importar  java . . _ Scanner ;
+
+public  class  Elevador {
+    private  int  capacidadeMax ;
+    private  int  andarAtual ;
+    privado  int  andarEscolhido ;
+    private  int  pessoasPresentes ;
+
+
+    public  Elevador ( int  capacidade , String  velocidade , int  andarAtual ) {
+        isso . capacidadeMax = capacidade ;
+        isso . andarAtual = andarAtual ;
+    }
+
+    public  void  andarEscolhido (){
+        Sistema . fora . println ( "Para qual andar voce deseja ir?" );
+        Scanner  entrada = new  Scanner ( System . in );
+        isso . andarEscolhido = entrada . proximoInt ();
+        if ( this . andarEscolhido > this . andarAtual ) {
+            isso . subir ();
+        } senão {
+            isso . descer ();
+        }
+    }
+
+    public  void  subir (){
+        Sistema . fora . println ( "Subindo..." );
+        for ( int  i = this . andarAtual + 1 ; i <= this . andarEscolhido ; i ++){
+            Sistema . fora . println ( "Andar: " + i );
+        }
+        isso . andarAtual = este . andarEscolhido ;
+        Sistema . fora . println ( "Seu andar chegou. Pode sair!" );
+    }
+
+    public  void  descer (){
+        Sistema . fora . println ( "Descendo..." );
+        for ( int  i = this . andarAtual - 1 ; i >= this . andarEscolhido ; i --){
+            Sistema . fora . println ( "Andar: " + i );
+        }
+        isso . andarAtual = este . andarEscolhido ;
+        Sistema . fora . println ( "Seu andar chegou. Pode sair!" );
+    }
+
+    public  void  imprimirDados (){
+        Sistema . fora . println ( "Andar atual: " + this . andarAtual );
+        Sistema . fora . println ( "Capacidade: " + this . capacidadeMax + "pessoas" );
+    }
+
+    public  void  verificarCapacidade (){
+        Sistema . fora . println ( "Quantas pessoas estão dentro do elevador?" );
+        Scanner  entrada = new  Scanner ( System . in );
+        isso . pessoasPresentes = entrada . proximoInt ();
+        if ( this . capacidadeMax > this . pessoasPresentes ){
+            Sistema . fora . println ( "Capacidade permitida ainda não atingida. Pode entrar!" );
+            imprimirDados ();
+            andarEscolhido ();
+        } senão {
+            Sistema . fora . println ( "Atingiu a capacidade permitida. Espere outro elevador!" );
+        }
+    }
+
+
+}
