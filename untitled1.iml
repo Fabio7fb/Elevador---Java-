@@ -1,0 +1,11 @@
+<? versão xml = " 1.0 " codificação = " UTF-8 " ?>
+< tipo de módulo  = " JAVA_MODULE " versão = " 4 " > 
+  < nome do componente  = " NewModuleRootManager " herança do compilador-saída = " verdadeiro " > 
+    < excluir-saída />
+    < url do conteúdo  = " arquivo://$MODULE_DIR$ " >
+      < sourceFolder  url = " file://$MODULE_DIR$/src "  isTestSource = " false " />
+    </ conteúdo >
+    < tipo OrderEntry  = " herdadoJdk " />
+    < tipo OrderEntry  = " sourceFolder " forTests = " false " /> 
+  </componente> _ _
+</ módulo >
